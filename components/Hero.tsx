@@ -1,31 +1,39 @@
 import Container from "./Container";
 import { TELEGRAM_LINK } from "@/lib/site-config";
+import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section className="flex min-h-screen items-center bg-[#0b0713] pt-28 pb-16 text-white lg:pt-20">
+    <section className="relative flex min-h-screen items-center pt-28 pb-16 text-[#4a3324] lg:pt-20">
+      <div className="glow-orb glow-orb-violet animate-drift -left-32 -top-32 h-[28rem] w-[28rem]" />
+      <div
+        className="glow-orb glow-orb-pink animate-drift right-0 top-1/3 h-96 w-96"
+        style={{ animationDelay: "2s" }}
+      />
+
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
+        <div className="relative grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#e0835f]/30 bg-white/50 px-4 py-1.5 text-sm text-[#b5622f]">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[#e0835f]" />
+              Контент-продюсер
+            </div>
+
             <h1 className="mb-8 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
               Продвигаю
               <br />
               экспертов через
               <br />
-              <span className="relative inline-block font-bold italic text-violet-400 drop-shadow-[0_0_40px_rgba(168,85,247,0.7)]">
+              <span className="text-shimmer-gold relative inline-block font-bold italic drop-shadow-[0_0_30px_rgba(224,131,95,0.35)]">
                 REELS
-                <span className="absolute inset-0 -z-10 animate-pulse bg-violet-500/50 blur-2xl" />
-                <span
-                  className="absolute inset-0 -z-20 animate-pulse bg-violet-500/30 blur-3xl"
-                  style={{ animationDelay: "0.5s" }}
-                />
+                <span className="absolute inset-0 -z-10 bg-[#e0835f]/20 blur-2xl" />
               </span>
               <br />и строю
               <br />
               личный бренд
             </h1>
 
-            <p className="mb-10 max-w-xl text-lg leading-8 text-zinc-400">
+            <p className="mb-10 max-w-xl text-lg leading-8 text-[#8a6b55]">
               Контент-стратегия: идеи, сценарии, монтаж и аналитика
               <br />
               Система, которая приводит клиентов
@@ -36,37 +44,51 @@ export default function Hero() {
                 href={TELEGRAM_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-violet-600 px-8 py-4 text-center font-medium transition hover:bg-violet-500"
+                className="rounded-full bg-gradient-to-r from-[#d9a441] to-[#e0835f] px-8 py-4 text-center font-medium text-white shadow-lg shadow-[#e0835f]/25 transition hover:scale-[1.03] hover:shadow-[#e0835f]/40"
               >
                 Получить разбор
               </a>
 
               <a
                 href="#portfolio"
-                className="rounded-full border border-zinc-700 px-8 py-4 text-center font-medium transition hover:border-zinc-500"
+                className="rounded-full border border-[#4a3324]/20 px-8 py-4 text-center font-medium transition hover:border-[#4a3324]/40 hover:bg-black/5"
               >
                 Посмотреть кейсы
               </a>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative hidden items-center justify-start lg:flex">
-            <div className="absolute h-125 w-125 rounded-full bg-violet-700/20 blur-[140px]" />
+          <Reveal delay={150}>
+            <div className="relative hidden items-center justify-center lg:flex">
+              <div className="absolute h-125 w-125 rounded-full bg-[#e0835f]/20 blur-[140px]" />
 
-            <div className="relative h-160 w-80 overflow-hidden rounded-[52px] border border-zinc-800 bg-[#050505] shadow-2xl">
-              <div className="absolute left-1/2 top-3 z-10 h-7 w-36 -translate-x-1/2 rounded-full bg-black" />
+              <div className="absolute right-6 top-10 h-144 w-68 -rotate-6 overflow-hidden rounded-[44px] border border-[#4a3324]/10 bg-[#2b1a10] opacity-70 shadow-2xl">
+                <video
+                  className="h-full w-full object-cover"
+                  src="/video/case-4-AI.MP4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
 
-              <video
-                className="h-full w-full object-cover"
-                src="/video/case-7-nutr.MP4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              />
+              <div className="animate-float relative h-160 w-80 overflow-hidden rounded-[52px] border border-[#4a3324]/15 bg-[#2b1a10] shadow-2xl shadow-[#c9622f]/20">
+                <div className="absolute left-1/2 top-3 z-10 h-7 w-36 -translate-x-1/2 rounded-full bg-black" />
+
+                <video
+                  className="h-full w-full object-cover"
+                  src="/video/case-7-nutr.MP4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

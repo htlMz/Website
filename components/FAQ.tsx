@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Container from "./Container";
+import Reveal from "./Reveal";
 
 const items = [
   {
@@ -36,15 +37,15 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 bg-[#0b0713] py-24 text-white">
-      <Container>
-        <div className="w-full h-px bg-linear-to-r from-transparent via-violet-500/30 to-transparent mb-20" />
+    <section id="faq" className="relative scroll-mt-24 py-20 text-[#4a3324]">
+      <div className="glow-orb glow-orb-fuchsia animate-drift left-1/3 top-0 h-96 w-96" />
 
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-semibold tracking-[-0.03em] md:text-5xl lg:text-6xl">
-            Частые <span className="gradient-text glow-violet">вопросы</span>
+      <Container>
+        <Reveal className="mb-16 text-center">
+          <h2 className="text-4xl font-semibold tracking-[-0.03em] md:text-5xl lg:text-6xl text-[#4a3324]">
+            Частые <span className="gradient-text-violet glow-violet">вопросы</span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mx-auto max-w-3xl space-y-4">
           {items.map((item, index) => {
@@ -52,7 +53,7 @@ export default function FAQ() {
             return (
               <div
                 key={item.question}
-                className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden"
+                className="glass-card rounded-2xl overflow-hidden"
               >
                 <button
                   type="button"
@@ -60,18 +61,18 @@ export default function FAQ() {
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-lg font-medium text-white">
+                  <span className="text-lg font-medium text-[#4a3324]">
                     {item.question}
                   </span>
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-violet-400 transition-transform duration-300 ${
+                    className={`h-5 w-5 shrink-0 text-[#d9803f] transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 text-zinc-400 leading-relaxed">
+                  <div className="px-6 pb-5 text-[#8a6b55] leading-relaxed">
                     {item.answer}
                   </div>
                 )}

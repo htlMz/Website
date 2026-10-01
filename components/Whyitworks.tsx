@@ -125,7 +125,7 @@ export default function Whyitworks() {
 
         if (part.type === "highlight") {
           return (
-            <span key={i} className="text-violet-200 font-semibold glow-violet-strong">
+            <span key={i} className="text-shimmer-gold font-semibold glow-violet-strong">
               {partText}
             </span>
           );
@@ -154,15 +154,15 @@ export default function Whyitworks() {
     return (
       <div
         key={index}
-        className={`text-lg md:text-xl lg:text-2xl text-zinc-300 leading-relaxed border-l-4 border-violet-400/30 pl-6 py-2 hover:border-violet-400 transition-all duration-300 ${
+        className={`text-lg md:text-xl lg:text-2xl text-[#6b5240] leading-relaxed border-l-4 border-[#e0835f]/35 pl-6 py-2 hover:border-[#e0835f] transition-all duration-300 ${
           !isActive && !isDone ? "opacity-50" : ""
         }`}
       >
         {renderFullText()}
         {showCursor && (
-          <span className="inline-block w-[2px] h-6 bg-violet-300 ml-1 animate-pulse" />
+          <span className="inline-block w-[2px] h-6 bg-[#d9803f] ml-1 animate-pulse" />
         )}
-        <span className="block text-sm text-zinc-500 mt-1 font-mono tracking-wider">
+        <span className="block text-sm text-[#a68868] mt-1 font-mono tracking-wider">
           — {String(index + 1).padStart(2, "0")}
         </span>
       </div>
@@ -173,14 +173,14 @@ export default function Whyitworks() {
     <section
       id="why-it-works"
       ref={sectionRef}
-      className="py-24 bg-[#0b0713] scroll-mt-24"
+      className="relative py-20 scroll-mt-24"
     >
-      <Container>
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent mb-16" />
+      <div className="glow-orb glow-orb-pink animate-drift right-0 top-0 h-96 w-96" />
 
+      <Container>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em]">
-            Почему это <span className="gradient-text glow-violet">работает?</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#4a3324]">
+            Почему это <span className="gradient-text-violet glow-violet">работает?</span>
           </h2>
         </div>
 
@@ -189,15 +189,11 @@ export default function Whyitworks() {
         </div>
 
         {showFinalPhrase && (
-          <>
-            <div className="text-center mt-12 animate-fadeIn">
-              <p className="text-xl md:text-2xl lg:text-3xl font-serif italic font-semibold text-violet-200 glow-violet-strong">
-                Система побеждает хаос
-              </p>
-            </div>
-
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent mt-20 animate-fadeIn" />
-          </>
+          <div className="text-center mt-12 animate-fadeIn">
+            <p className="text-xl md:text-2xl lg:text-3xl font-serif italic font-semibold text-shimmer-gold glow-violet-strong">
+              Система побеждает хаос
+            </p>
+          </div>
         )}
       </Container>
     </section>

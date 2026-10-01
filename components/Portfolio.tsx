@@ -1,4 +1,6 @@
 import Container from "./Container";
+import VideoCard from "./VideoCard";
+import Reveal from "./Reveal";
 
 const cases = [
   {
@@ -65,44 +67,33 @@ const cases = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="scroll-mt-24 bg-[#0b0713] py-24 text-white">
+    <section id="portfolio" className="relative scroll-mt-24 py-20 text-[#4a3324]">
+      <div className="glow-orb glow-orb-violet animate-drift left-0 top-1/4 h-96 w-96" />
+      <div
+        className="glow-orb glow-orb-pink animate-drift right-0 bottom-0 h-96 w-96"
+        style={{ animationDelay: "3s" }}
+      />
+
       <Container>
-        <div className="mb-12">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-violet-400">
+        <Reveal className="mb-12">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9622f]">
             Кейсы
           </p>
 
-          <h2 className="text-4xl font-semibold md:text-6xl">
+          <h2 className="text-4xl font-semibold md:text-6xl text-[#4a3324]">
             Что мы уже делали
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {cases.map((item) => (
-            <article
-              key={item.id}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
-            >
-              <div className="aspect-video bg-black">
-                <video
-                  className="h-full w-full object-cover"
-                  src={item.video}
-                  controls
-                  playsInline
-                  preload="metadata"
-                />
-              </div>
-
-              <div className="p-5">
-                <p className="mb-2 text-sm text-violet-400">
-                  {item.category}
-                </p>
-
-                <h3 className="text-xl font-medium text-white">
-                  {item.title}
-                </h3>
-              </div>
-            </article>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+          {cases.map((item, index) => (
+            <Reveal key={item.id} delay={(index % 4) * 80}>
+              <VideoCard
+                src={item.video}
+                title={item.title}
+                category={item.category}
+              />
+            </Reveal>
           ))}
         </div>
       </Container>

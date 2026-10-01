@@ -1,36 +1,40 @@
 import Container from "./Container";
 import { TELEGRAM_LINK } from "@/lib/site-config";
+import Reveal from "./Reveal";
 
 export default function CTA() {
   return (
-    <section id="contact" className="scroll-mt-24 bg-[#0b0713] py-24 text-white">
+    <section id="contact" className="relative scroll-mt-24 py-20 text-[#4a3324]">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl border border-violet-500/20 bg-white/5 px-6 py-16 text-center sm:px-12">
-          <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-[#e0835f]/25 bg-gradient-to-br from-white/70 to-white/30 px-6 py-16 text-center sm:px-12">
+            <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#e0835f]/25 blur-[120px]" />
+            <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-[#d9a441]/25 blur-[110px]" />
 
-          <p className="relative mb-4 text-sm uppercase tracking-[0.3em] text-violet-400">
-            Бесплатный разбор
-          </p>
+            <p className="relative mb-4 text-sm uppercase tracking-[0.3em] text-[#c9622f]">
+              Бесплатный разбор
+            </p>
 
-          <h2 className="relative mb-6 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl md:text-5xl">
-            Разберём твою ситуацию
-            <br />и подберём формат работы
-          </h2>
+            <h2 className="relative mb-6 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl md:text-5xl text-[#4a3324]">
+              Разберём твою ситуацию
+              <br />и подберём формат работы
+            </h2>
 
-          <p className="relative mx-auto mb-10 max-w-xl text-lg leading-7 text-zinc-400">
-            Созвон в Telegram: расскажи о своей нише и целях — предложу
-            реалистичный план, без готовых шаблонов и завышенных обещаний.
-          </p>
+            <p className="relative mx-auto mb-10 max-w-xl text-lg leading-7 text-[#8a6b55]">
+              Созвон в Telegram: расскажи о своей нише и целях — предложу
+              реалистичный план, без готовых шаблонов и завышенных обещаний.
+            </p>
 
-          <a
-            href={TELEGRAM_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative inline-block rounded-full bg-violet-600 px-10 py-4 font-medium text-white transition hover:bg-violet-500"
-          >
-            Написать в Telegram
-          </a>
-        </div>
+            <a
+              href={TELEGRAM_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-block rounded-full bg-gradient-to-r from-[#d9a441] to-[#e0835f] px-10 py-4 font-medium text-white shadow-lg shadow-[#e0835f]/25 transition hover:scale-[1.03] hover:shadow-[#e0835f]/40"
+            >
+              Написать в Telegram
+            </a>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

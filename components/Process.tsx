@@ -1,4 +1,5 @@
 import Container from "./Container";
+import Reveal from "./Reveal";
 
 const steps = [
   {
@@ -54,60 +55,58 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="scroll-mt-24 py-24 bg-[#0b0713]">
-      <Container>
-        <div className="w-full h-px bg-linear-to-r from-transparent via-violet-500/30 to-transparent mb-20" />
+    <section id="process" className="relative scroll-mt-24 py-20">
+      <div className="glow-orb glow-orb-fuchsia animate-drift right-0 top-10 h-96 w-96" />
 
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-white">
-            Твой <span className="gradient-text glow-violet">личный бренд</span>
+      <Container>
+        <Reveal className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#4a3324]">
+            Твой <span className="gradient-text-violet glow-violet">личный бренд</span>
             <br />
             по шагам
           </h2>
-        </div>
+        </Reveal>
 
         <div
           className="flex gap-4 overflow-x-auto pb-6 scroll-smooth"
           style={{
-            scrollbarColor: "#8b5cf6 #1a1a1a",
+            scrollbarColor: "#e0835f #f5e3cd",
             scrollbarWidth: "thin",
           }}
         >
           {steps.map((step) => (
             <div
               key={step.number}
-              className="relative w-70 sm:w-75 shrink-0 bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-violet-400/40 transition-all duration-300 group hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-500/10"
+              className="glass-card relative w-70 sm:w-75 shrink-0 rounded-2xl p-8 group hover:-translate-y-2"
             >
               {/* Бейдж времени — показываем только если time не пустой */}
               {step.time && (
-                <div className="absolute top-4 right-4 bg-violet-400/10 border border-violet-400/30 text-violet-300 text-sm font-medium px-3 py-1 rounded-full">
+                <div className="absolute top-4 right-4 bg-[#e0835f]/10 border border-[#e0835f]/30 text-[#c9622f] text-sm font-medium px-3 py-1 rounded-full">
                   {step.time}
                 </div>
               )}
 
-              <span className="text-5xl font-bold text-violet-400/20 group-hover:text-violet-400/40 group-hover:scale-110 transition-all duration-300 inline-block">
+              <span className="text-5xl font-bold text-[#d9803f]/30 group-hover:text-[#d9803f]/55 group-hover:scale-110 transition-all duration-300 inline-block">
                 {step.number}
               </span>
-              <h3 className="text-xl font-semibold mt-4 mb-2 text-white pr-16">
+              <h3 className="text-xl font-semibold mt-4 mb-2 text-[#4a3324] pr-16">
                 {step.title}
               </h3>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-[#8a6b55] leading-relaxed">
                 {step.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-xl md:text-2xl lg:text-3xl font-serif italic font-semibold text-violet-200 glow-violet-strong">
+        <Reveal className="text-center mt-14">
+          <p className="text-xl md:text-2xl lg:text-3xl font-serif italic font-semibold text-shimmer-gold glow-violet-strong">
             С тебя — 3-4 часа в неделю
             <br />
             <br />
             Минимум твоего времени — максимум результата
           </p>
-        </div>
-
-        <div className="w-full h-px bg-linear-to-r from-transparent via-violet-500/30 to-transparent mt-20" />
+        </Reveal>
       </Container>
     </section>
   );
