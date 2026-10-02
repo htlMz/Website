@@ -84,7 +84,7 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
       <div
         ref={cardRef}
         onClick={() => setIsOpen(true)}
-        className="group relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-3xl border border-[var(--fg)]/10 bg-[#140a05] shadow-lg shadow-[var(--accent-text)]/10 transition-colors duration-300 hover:border-[var(--accent-2)]/50"
+        className="group relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-3xl border border-[var(--fg)]/10 bg-[#0f0e14] shadow-lg shadow-[var(--accent-text)]/10 transition-colors duration-300 hover:border-[var(--accent-2)]/50"
       >
         {shouldLoad && (
           <video
@@ -113,7 +113,7 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
         </div>
 
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <p className="mb-1 text-xs uppercase tracking-[0.2em] text-[#f0b485]">
+          <p className="mb-1 text-xs uppercase tracking-[0.2em] text-[var(--accent-text)]">
             {category}
           </p>
           <h3 className="text-base font-medium leading-snug text-white">
