@@ -37,12 +37,12 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative scroll-mt-24 py-20 text-[#4a3324]">
+    <section id="faq" className="relative scroll-mt-24 py-20 text-[var(--fg)]">
       <div className="glow-orb glow-orb-fuchsia animate-drift left-1/3 top-0 h-96 w-96" />
 
       <Container>
         <Reveal className="mb-16 text-center">
-          <h2 className="text-4xl font-semibold tracking-[-0.03em] md:text-5xl lg:text-6xl text-[#4a3324]">
+          <h2 className="text-4xl font-semibold tracking-[-0.03em] md:text-5xl lg:text-6xl text-[var(--fg)]">
             Частые <span className="gradient-text-violet glow-violet">вопросы</span>
           </h2>
         </Reveal>
@@ -61,18 +61,18 @@ export default function FAQ() {
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-lg font-medium text-[#4a3324]">
+                  <span className="text-lg font-medium text-[var(--fg)]">
                     {item.question}
                   </span>
                   <ChevronDown
-                    className={`h-5 w-5 shrink-0 text-[#d9803f] transition-transform duration-300 ${
+                    className={`h-5 w-5 shrink-0 text-[var(--accent-icon)] transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 text-[#8a6b55] leading-relaxed">
+                  <div className="px-6 pb-5 text-[var(--muted)] leading-relaxed">
                     {item.answer}
                   </div>
                 )}

@@ -67,7 +67,7 @@ const cases = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="relative scroll-mt-24 py-20 text-[#4a3324]">
+    <section id="portfolio" className="relative scroll-mt-24 py-20 text-[var(--fg)]">
       <div className="glow-orb glow-orb-violet animate-drift left-0 top-1/4 h-96 w-96" />
       <div
         className="glow-orb glow-orb-pink animate-drift right-0 bottom-0 h-96 w-96"
@@ -76,11 +76,11 @@ export default function Portfolio() {
 
       <Container>
         <Reveal className="mb-12">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c9622f]">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[var(--accent-text)]">
             Кейсы
           </p>
 
-          <h2 className="text-4xl font-semibold md:text-6xl text-[#4a3324]">
+          <h2 className="text-4xl font-semibold md:text-6xl text-[var(--fg)]">
             Что мы уже делали
           </h2>
         </Reveal>

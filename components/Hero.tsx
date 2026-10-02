@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center pt-28 pb-16 text-[#4a3324] lg:pt-20">
+    <section className="relative flex min-h-screen items-center pt-28 pb-16 text-[var(--fg)] lg:pt-20">
       <div className="glow-orb glow-orb-violet animate-drift -left-32 -top-32 h-[28rem] w-[28rem]" />
       <div
         className="glow-orb glow-orb-pink animate-drift right-0 top-1/3 h-96 w-96"
@@ -14,8 +14,8 @@ export default function Hero() {
       <Container>
         <div className="relative grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#e0835f]/30 bg-white/50 px-4 py-1.5 text-sm text-[#b5622f]">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-[#e0835f]" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--accent-2)]/30 bg-white/5 px-4 py-1.5 text-sm text-[var(--accent-text)]">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--accent-2)]" />
               Контент-продюсер
             </div>
 
@@ -26,14 +26,14 @@ export default function Hero() {
               <br />
               <span className="text-shimmer-gold relative inline-block font-bold italic drop-shadow-[0_0_30px_rgba(224,131,95,0.35)]">
                 REELS
-                <span className="absolute inset-0 -z-10 bg-[#e0835f]/20 blur-2xl" />
+                <span className="absolute inset-0 -z-10 bg-[var(--accent-2)]/20 blur-2xl" />
               </span>
               <br />и строю
               <br />
               личный бренд
             </h1>
 
-            <p className="mb-10 max-w-xl text-lg leading-8 text-[#8a6b55]">
+            <p className="mb-10 max-w-xl text-lg leading-8 text-[var(--muted)]">
               Контент-стратегия: идеи, сценарии, монтаж и аналитика
               <br />
               Система, которая приводит клиентов
@@ -44,14 +44,14 @@ export default function Hero() {
                 href={TELEGRAM_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-gradient-to-r from-[#d9a441] to-[#e0835f] px-8 py-4 text-center font-medium text-white shadow-lg shadow-[#e0835f]/25 transition hover:scale-[1.03] hover:shadow-[#e0835f]/40"
+                className="rounded-full bg-gradient-to-r from-[var(--accent-1)] to-[var(--accent-2)] px-8 py-4 text-center font-medium text-white shadow-lg shadow-[var(--accent-2)]/25 transition hover:scale-[1.03] hover:shadow-[var(--accent-2)]/40"
               >
                 Получить разбор
               </a>
 
               <a
                 href="#portfolio"
-                className="rounded-full border border-[#4a3324]/20 px-8 py-4 text-center font-medium transition hover:border-[#4a3324]/40 hover:bg-black/5"
+                className="rounded-full border border-[var(--fg)]/20 px-8 py-4 text-center font-medium transition hover:border-[var(--fg)]/40 hover:bg-white/5"
               >
                 Посмотреть кейсы
               </a>
@@ -60,9 +60,9 @@ export default function Hero() {
 
           <Reveal delay={150}>
             <div className="relative hidden items-center justify-center lg:flex">
-              <div className="absolute h-125 w-125 rounded-full bg-[#e0835f]/20 blur-[140px]" />
+              <div className="absolute h-125 w-125 rounded-full bg-[var(--accent-2)]/20 blur-[140px]" />
 
-              <div className="absolute right-6 top-10 h-144 w-68 -rotate-6 overflow-hidden rounded-[44px] border border-[#4a3324]/10 bg-[#2b1a10] opacity-70 shadow-2xl">
+              <div className="absolute right-6 top-10 h-144 w-68 -rotate-6 overflow-hidden rounded-[44px] border border-[var(--fg)]/10 bg-[#140a05] opacity-70 shadow-2xl">
                 <video
                   className="h-full w-full object-cover"
                   src="/video/case-4-AI.MP4"
@@ -74,7 +74,7 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="animate-float relative h-160 w-80 overflow-hidden rounded-[52px] border border-[#4a3324]/15 bg-[#2b1a10] shadow-2xl shadow-[#c9622f]/20">
+              <div className="animate-float relative h-160 w-80 overflow-hidden rounded-[52px] border border-[var(--fg)]/15 bg-[#140a05] shadow-2xl shadow-[var(--accent-text)]/20">
                 <div className="absolute left-1/2 top-3 z-10 h-7 w-36 -translate-x-1/2 rounded-full bg-black" />
 
                 <video

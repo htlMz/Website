@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbead9;
-  --foreground: #4a3324;
-  --muted: #8a6b55;
-  --primary: #e0835f;
-  --primary-hover: #e8a082;
-  --accent: #d9a441;
-  --gold: #d9a441;
-  --gold-light: #f0d9b0;
-  --peach: #e0835f;
-  --rose: #e8c3ab;
+  /* Тема — вариант 1: тёмно-шоколадный + золото.
+     Меняя эти переменные, можно полностью переключить палитру сайта. */
+  --bg-top: #2a1810;
+  --bg-mid: #1c110a;
+  --fg: #f3e4d2;
+  --muted: #b89a7f;
+  --accent-1: #d9a441;
+  --accent-2: #e0835f;
+  --accent-text: #f0b485;
+  --accent-icon: #e0a561;
+
+  --background: var(--bg-top);
+  --foreground: var(--fg);
 }
 
 @theme inline {
@@ -25,8 +28,8 @@ html {
 }
 
 body {
-  background-color: #fbead9;
-  background-image: linear-gradient(180deg, #fdf3e7 0%, #f7e0c9 50%, #fdf3e7 100%);
+  background-color: var(--bg-top);
+  background-image: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-top) 100%);
   background-size: 100% 100vh;
   background-repeat: repeat-y;
   color: var(--foreground);
@@ -68,7 +71,7 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5e3cd;
+  background: var(--bg-mid);
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #d9a441, #e0835f);
@@ -143,18 +146,18 @@ body {
 }
 
 .glass-card {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.4));
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(217, 164, 65, 0.25);
+  border: 1px solid rgba(217, 164, 65, 0.18);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .glass-card:hover {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
-  border-color: rgba(224, 131, 95, 0.5);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border-color: rgba(224, 131, 95, 0.45);
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(190, 120, 70, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 /* Анимированный градиентный фон */

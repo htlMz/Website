@@ -154,15 +154,15 @@ export default function Whyitworks() {
     return (
       <div
         key={index}
-        className={`text-lg md:text-xl lg:text-2xl text-[#6b5240] leading-relaxed border-l-4 border-[#e0835f]/35 pl-6 py-2 hover:border-[#e0835f] transition-all duration-300 ${
+        className={`text-lg md:text-xl lg:text-2xl text-[var(--muted)] leading-relaxed border-l-4 border-[var(--accent-2)]/35 pl-6 py-2 hover:border-[var(--accent-2)] transition-all duration-300 ${
           !isActive && !isDone ? "opacity-50" : ""
         }`}
       >
         {renderFullText()}
         {showCursor && (
-          <span className="inline-block w-[2px] h-6 bg-[#d9803f] ml-1 animate-pulse" />
+          <span className="inline-block w-[2px] h-6 bg-[var(--accent-icon)] ml-1 animate-pulse" />
         )}
-        <span className="block text-sm text-[#a68868] mt-1 font-mono tracking-wider">
+        <span className="block text-sm text-[var(--muted)]/70 mt-1 font-mono tracking-wider">
           — {String(index + 1).padStart(2, "0")}
         </span>
       </div>
@@ -179,7 +179,7 @@ export default function Whyitworks() {
 
       <Container>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#4a3324]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[var(--fg)]">
             Почему это <span className="gradient-text-violet glow-violet">работает?</span>
           </h2>
         </div>

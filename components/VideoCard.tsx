@@ -15,13 +15,35 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Фоновое превью играет только когда карточка реально видна — экономит батарею и CPU на телефоне
+  // Видео монтируется и начинает грузиться, только когда карточка приближается к экрану —
+  // иначе браузер сразу тянет все ролики со страницы разом
   useEffect(() => {
+    const card = cardRef.current;
+    if (!card || shouldLoad) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px 0px" }
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [shouldLoad]);
+
+  // После того как видео загружено, играем его только пока карточка реально видна
+  useEffect(() => {
+    if (!shouldLoad) return;
     const video = videoRef.current;
     const card = cardRef.current;
     if (!video || !card) return;
@@ -39,7 +61,7 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
 
     observer.observe(card);
     return () => observer.disconnect();
-  }, []);
+  }, [shouldLoad]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -62,18 +84,20 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
       <div
         ref={cardRef}
         onClick={() => setIsOpen(true)}
-        className="group relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-3xl border border-[#4a3324]/10 bg-[#2b1a10] shadow-lg shadow-[#c9622f]/10 transition-colors duration-300 hover:border-[#e0835f]/50"
+        className="group relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-3xl border border-[var(--fg)]/10 bg-[#140a05] shadow-lg shadow-[var(--accent-text)]/10 transition-colors duration-300 hover:border-[var(--accent-2)]/50"
       >
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          src={src}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        />
+        {shouldLoad && (
+          <video
+            ref={videoRef}
+            className="h-full w-full object-cover"
+            src={src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
+        )}
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
 

@@ -51,7 +51,7 @@ export default function Services() {
       <Container>
         {/* Заголовок */}
         <Reveal className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#4a3324]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[var(--fg)]">
             Твой контент начнёт
             <br />
             <span className="gradient-text-violet glow-violet">приводить клиентов</span>
@@ -65,11 +65,11 @@ export default function Services() {
             return (
               <Reveal key={index} delay={index * 80}>
                 <div className="glass-card h-full rounded-2xl p-8 group">
-                  <Icon className="w-10 h-10 text-[#d9803f] mb-4 group-hover:scale-110 group-hover:text-[#c9622f] transition" />
-                  <h3 className="text-xl font-semibold mb-3 text-[#4a3324]">
+                  <Icon className="w-10 h-10 text-[var(--accent-icon)] mb-4 group-hover:scale-110 group-hover:text-[var(--accent-text)] transition" />
+                  <h3 className="text-xl font-semibold mb-3 text-[var(--fg)]">
                     {service.title}
                   </h3>
-                  <p className="text-[#8a6b55] leading-relaxed">
+                  <p className="text-[var(--muted)] leading-relaxed">
                     {service.description}
                   </p>
                 </div>

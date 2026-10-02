@@ -60,7 +60,7 @@ export default function Process() {
 
       <Container>
         <Reveal className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#4a3324]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[var(--fg)]">
             Твой <span className="gradient-text-violet glow-violet">личный бренд</span>
             <br />
             по шагам
@@ -70,7 +70,7 @@ export default function Process() {
         <div
           className="flex gap-4 overflow-x-auto pb-6 scroll-smooth"
           style={{
-            scrollbarColor: "#e0835f #f5e3cd",
+            scrollbarColor: "var(--accent-2) var(--bg-mid)",
             scrollbarWidth: "thin",
           }}
         >
@@ -81,18 +81,18 @@ export default function Process() {
             >
               {/* Бейдж времени — показываем только если time не пустой */}
               {step.time && (
-                <div className="absolute top-4 right-4 bg-[#e0835f]/10 border border-[#e0835f]/30 text-[#c9622f] text-sm font-medium px-3 py-1 rounded-full">
+                <div className="absolute top-4 right-4 bg-[var(--accent-2)]/10 border border-[var(--accent-2)]/30 text-[var(--accent-text)] text-sm font-medium px-3 py-1 rounded-full">
                   {step.time}
                 </div>
               )}
 
-              <span className="text-5xl font-bold text-[#d9803f]/30 group-hover:text-[#d9803f]/55 group-hover:scale-110 transition-all duration-300 inline-block">
+              <span className="text-5xl font-bold text-[var(--accent-icon)]/30 group-hover:text-[var(--accent-icon)]/55 group-hover:scale-110 transition-all duration-300 inline-block">
                 {step.number}
               </span>
-              <h3 className="text-xl font-semibold mt-4 mb-2 text-[#4a3324] pr-16">
+              <h3 className="text-xl font-semibold mt-4 mb-2 text-[var(--fg)] pr-16">
                 {step.title}
               </h3>
-              <p className="text-[#8a6b55] leading-relaxed">
+              <p className="text-[var(--muted)] leading-relaxed">
                 {step.description}
               </p>
             </div>
