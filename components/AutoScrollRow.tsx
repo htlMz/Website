@@ -7,27 +7,27 @@ type AutoScrollRowProps = {
   speed?: number; // пикселей за кадр
 };
 
-export default function AutoScrollRow({ children, speed = 0.6 }: AutoScrollRowProps) {
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
+export default function AutoScrollRow({ children, speed = 1.3 }: AutoScrollRowProps) {
+  const trackRef = useRef<HTMLDivElement | null>(null);
   const pausedRef = useRef(false);
 
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
+    const track = trackRef.current;
+    if (!track) return;
 
-    // scrollLeft округляется браузером до целого пикселя при каждом чтении,
-    // поэтому дробная скорость накапливается в отдельной переменной, а не через el.scrollLeft
-    let position = el.scrollLeft;
+    // Двигаем через transform (композитится видеокартой), а не scrollLeft —
+    // это не трогает layout на каждый кадр и не лагает при большом числе видео
+    let position = 0;
     let rafId: number;
 
     const tick = () => {
       if (!pausedRef.current) {
-        const half = el.scrollWidth / 2;
+        const half = track.scrollWidth / 2;
         position += speed;
         if (position >= half) {
           position -= half;
         }
-        el.scrollLeft = position;
+        track.style.transform = `translateX(-${position}px)`;
       }
       rafId = requestAnimationFrame(tick);
     };
@@ -38,15 +38,15 @@ export default function AutoScrollRow({ children, speed = 0.6 }: AutoScrollRowPr
 
   return (
     <div
-      ref={scrollerRef}
+      className="overflow-hidden"
       onMouseEnter={() => (pausedRef.current = true)}
       onMouseLeave={() => (pausedRef.current = false)}
       onTouchStart={() => (pausedRef.current = true)}
       onTouchEnd={() => (pausedRef.current = false)}
-      className="no-scrollbar flex gap-4 overflow-x-auto sm:gap-6"
-      style={{ scrollBehavior: "auto" }}
     >
-      {children}
+      <div ref={trackRef} className="flex w-max gap-4 will-change-transform sm:gap-6">
+        {children}
+      </div>
     </div>
   );
 }

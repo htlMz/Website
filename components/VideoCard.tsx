@@ -34,7 +34,7 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
           observer.disconnect();
         }
       },
-      { rootMargin: "400px 0px" }
+      { rootMargin: "150px 0px" }
     );
 
     observer.observe(card);
