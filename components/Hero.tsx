@@ -20,18 +20,15 @@ export default function Hero() {
               Контент-продюсер
             </div>
 
-            <h1 className="mb-6 max-w-xl text-3xl font-semibold leading-[1.25] tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+            <h1 className="mb-6 max-w-xl text-4xl font-semibold leading-[1.2] tracking-[-0.02em] sm:text-5xl lg:text-6xl">
               Продвижение через{" "}
-              <span className="gradient-text-violet glow-violet">короткий контент</span> и
-              личный бренд
+              <span className="gradient-text-violet glow-violet">короткий контент</span>
             </h1>
 
             <PlatformBranches />
 
             <p className="mb-10 max-w-xl text-lg leading-8 text-[var(--muted)]">
-              Контент-стратегия: идеи, сценарии, монтаж и аналитика
-              <br />
-              Система, которая приводит клиентов
+              Контент-система, которая приводит клиентов и строит личный бренд
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -57,7 +54,7 @@ export default function Hero() {
             <div className="relative hidden items-center justify-center lg:flex">
               <div className="absolute h-125 w-125 rounded-full bg-[var(--accent-2)]/20 blur-[140px]" />
 
-              <div className="absolute right-6 top-10 h-144 w-68 -rotate-6 overflow-hidden rounded-[44px] border border-[var(--fg)]/10 bg-[#0f0e14] opacity-70 shadow-2xl">
+              <div className="absolute right-6 top-10 h-130 w-62 -rotate-6 overflow-hidden rounded-[40px] border border-[var(--fg)]/10 bg-[#0f0e14] opacity-70 shadow-2xl">
                 <video
                   className="h-full w-full object-cover"
                   src="/video/case-4-AI.MP4"
@@ -69,12 +66,12 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="animate-float relative h-160 w-80 overflow-hidden rounded-[52px] border border-[var(--fg)]/15 bg-[#0f0e14] shadow-2xl shadow-[var(--accent-text)]/20">
+              <div className="animate-float relative h-144 w-72 overflow-hidden rounded-[48px] border border-[var(--fg)]/15 bg-[#0f0e14] shadow-2xl shadow-[var(--accent-text)]/20">
                 <div className="absolute left-1/2 top-3 z-10 h-7 w-36 -translate-x-1/2 rounded-full bg-black" />
 
                 <video
                   className="h-full w-full object-cover"
-                  src="/video/case-7-nutr.MP4"
+                  src="/video/case-1-lifecoach.MP4"
                   autoPlay
                   loop
                   muted
