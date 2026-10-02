@@ -21,7 +21,7 @@ export default function FlipCard({ icon, front, back }: FlipCardProps) {
         if (e.key === "Enter" || e.key === " ") setFlipped((v) => !v);
       }}
       aria-pressed={flipped}
-      className="group h-60 w-full cursor-pointer select-none [perspective:1200px]"
+      className="group h-60 w-full cursor-pointer select-none transition-transform duration-300 hover:-translate-y-2 [perspective:1200px]"
     >
       <div
         className={`relative h-full w-full transition-transform duration-500 ease-out [transform-style:preserve-3d] ${
@@ -29,7 +29,7 @@ export default function FlipCard({ icon, front, back }: FlipCardProps) {
         }`}
       >
         {/* Лицевая сторона */}
-        <div className="glass-card absolute inset-0 flex h-full flex-col items-center justify-center gap-3 rounded-2xl p-6 text-center [backface-visibility:hidden]">
+        <div className="flip-face absolute inset-0 flex h-full flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl p-6 text-center [backface-visibility:hidden]">
           <div className="text-[var(--accent-icon)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
             {icon}
           </div>
@@ -40,7 +40,7 @@ export default function FlipCard({ icon, front, back }: FlipCardProps) {
         </div>
 
         {/* Обратная сторона */}
-        <div className="glass-card absolute inset-0 flex h-full items-center justify-center rounded-2xl p-6 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
+        <div className="flip-face absolute inset-0 flex h-full items-center justify-center overflow-hidden rounded-2xl p-6 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <p className="leading-relaxed text-[var(--muted)]">{back}</p>
         </div>
       </div>

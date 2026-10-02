@@ -160,6 +160,20 @@ body {
   box-shadow: 0 20px 50px rgba(107, 70, 150, 0.18);
 }
 
+/* Та же "стеклянная" заливка, но без hover-transform — для граней флип-карточек,
+   которым transform нужен отдельно, под поворот (конфликтуют, если делить с glass-card) */
+.flip-face {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 95, 209, 0.2);
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.flip-face:hover {
+  border-color: rgba(214, 103, 154, 0.45);
+}
+
 /* Анимированный градиентный фон */
 .hero-glow {
   position: absolute;
