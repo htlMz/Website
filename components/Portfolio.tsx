@@ -85,9 +85,15 @@ export default function Portfolio() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+        <div
+          className="flex gap-4 overflow-x-auto pb-6 scroll-smooth sm:gap-6"
+          style={{
+            scrollbarColor: "var(--accent-2) var(--bg-mid)",
+            scrollbarWidth: "thin",
+          }}
+        >
           {cases.map((item, index) => (
-            <Reveal key={item.id} delay={(index % 4) * 80}>
+            <Reveal key={item.id} delay={(index % 4) * 80} className="w-44 shrink-0 sm:w-52 md:w-56">
               <VideoCard
                 src={item.video}
                 title={item.title}
