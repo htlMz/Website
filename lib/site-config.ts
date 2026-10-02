@@ -1,5 +1,4 @@
-// TODO: заменить на реальную ссылку на Telegram перед деплоем
-export const TELEGRAM_LINK = "https://t.me/REPLACE_ME";
+export const TELEGRAM_LINK = "https://t.me/m/3_RLAVXJOWQ6";
 
 export const SITE_NAME = "Эмиль LOGO$";
 export const NAME = "Эмиль";
