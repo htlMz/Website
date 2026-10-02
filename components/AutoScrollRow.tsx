@@ -7,29 +7,27 @@ type AutoScrollRowProps = {
   speed?: number; // пикселей за кадр
 };
 
-export default function AutoScrollRow({ children, speed = 0.4 }: AutoScrollRowProps) {
+export default function AutoScrollRow({ children, speed = 0.6 }: AutoScrollRowProps) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const pausedRef = useRef(false);
 
   useEffect(() => {
     const el = scrollerRef.current;
-    console.log("[AutoScrollRow] mount effect, el:", el, "scrollWidth:", el?.scrollWidth);
     if (!el) return;
 
+    // scrollLeft округляется браузером до целого пикселя при каждом чтении,
+    // поэтому дробная скорость накапливается в отдельной переменной, а не через el.scrollLeft
+    let position = el.scrollLeft;
     let rafId: number;
-    let frame = 0;
 
     const tick = () => {
-      frame++;
-      if (frame % 60 === 0) {
-        console.log("[AutoScrollRow] tick", frame, "paused:", pausedRef.current, "scrollLeft:", el.scrollLeft, "scrollWidth:", el.scrollWidth);
-      }
       if (!pausedRef.current) {
         const half = el.scrollWidth / 2;
-        el.scrollLeft += speed;
-        if (el.scrollLeft >= half) {
-          el.scrollLeft -= half;
+        position += speed;
+        if (position >= half) {
+          position -= half;
         }
+        el.scrollLeft = position;
       }
       rafId = requestAnimationFrame(tick);
     };
