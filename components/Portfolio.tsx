@@ -1,6 +1,7 @@
 import Container from "./Container";
 import VideoCard from "./VideoCard";
 import Reveal from "./Reveal";
+import AutoScrollRow from "./AutoScrollRow";
 
 const cases = [
   {
@@ -85,23 +86,17 @@ export default function Portfolio() {
           </h2>
         </Reveal>
 
-        <div
-          className="flex gap-4 overflow-x-auto pb-6 scroll-smooth sm:gap-6"
-          style={{
-            scrollbarColor: "var(--accent-2) var(--bg-mid)",
-            scrollbarWidth: "thin",
-          }}
-        >
-          {cases.map((item, index) => (
-            <Reveal key={item.id} delay={(index % 4) * 80} className="w-44 shrink-0 sm:w-52 md:w-56">
+        <AutoScrollRow>
+          {[...cases, ...cases].map((item, index) => (
+            <div key={`${item.id}-${index}`} className="w-44 shrink-0 sm:w-52 md:w-56">
               <VideoCard
                 src={item.video}
                 title={item.title}
                 category={item.category}
               />
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </AutoScrollRow>
       </Container>
     </section>
   );

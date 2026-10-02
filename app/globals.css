@@ -226,6 +226,16 @@ body {
   animation: marquee 28s linear infinite;
 }
 
+/* Скрыть скроллбар, но оставить прокрутку доступной (для авто-скролла каруселей) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Появление элементов при скролле */
 .reveal {
   opacity: 0;
