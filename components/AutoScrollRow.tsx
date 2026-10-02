@@ -39,7 +39,8 @@ export default function AutoScrollRow({ children, speed = 0.4 }: AutoScrollRowPr
       onMouseLeave={() => (pausedRef.current = false)}
       onTouchStart={() => (pausedRef.current = true)}
       onTouchEnd={() => (pausedRef.current = false)}
-      className="no-scrollbar flex gap-4 overflow-x-auto scroll-smooth sm:gap-6"
+      className="no-scrollbar flex gap-4 overflow-x-auto sm:gap-6"
+      style={{ scrollBehavior: "auto" }}
     >
       {children}
     </div>
