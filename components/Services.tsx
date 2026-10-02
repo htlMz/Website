@@ -8,6 +8,7 @@ import {
   Star,
 } from "lucide-react";
 import Reveal from "./Reveal";
+import FlipCard from "./FlipCard";
 
 const services = [
   {
@@ -50,7 +51,7 @@ export default function Services() {
 
       <Container>
         {/* Заголовок */}
-        <Reveal className="text-center mb-16">
+        <Reveal className="text-center mb-4">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[var(--fg)]">
             Твой контент начнёт
             <br />
@@ -58,21 +59,21 @@ export default function Services() {
           </h2>
         </Reveal>
 
+        <p className="mb-12 text-center text-sm text-[var(--muted)]">
+          Нажми на карточку, чтобы раскрыть подробности
+        </p>
+
         {/* Карточки */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <Reveal key={index} delay={index * 80}>
-                <div className="glass-card h-full rounded-2xl p-8 group">
-                  <Icon className="w-10 h-10 text-[var(--accent-icon)] mb-4 group-hover:scale-110 group-hover:text-[var(--accent-text)] transition" />
-                  <h3 className="text-xl font-semibold mb-3 text-[var(--fg)]">
-                    {service.title}
-                  </h3>
-                  <p className="text-[var(--muted)] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                <FlipCard
+                  icon={<Icon className="h-10 w-10" />}
+                  front={service.title}
+                  back={service.description}
+                />
               </Reveal>
             );
           })}

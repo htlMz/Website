@@ -8,6 +8,7 @@ import {
   Clock, // нет времени → часы
 } from "lucide-react";
 import Reveal from "./Reveal";
+import FlipCard from "./FlipCard";
 
 const reasons = [
   {
@@ -28,7 +29,7 @@ const reasons = [
   {
     question: "Снимаешь не системно, а как попало?",
     answer:
-      "Выстроим контент-стратегию и составим план публикацииНе снимать не получится",
+      "Выстроим контент-стратегию и составим план публикации. Не снимать не получится",
     icon: Calendar,
   },
   {
@@ -49,7 +50,7 @@ export default function Why() {
       <div className="glow-orb glow-orb-violet animate-drift left-0 bottom-0 h-96 w-96" />
 
       <Container>
-        <Reveal className="text-center mb-16">
+        <Reveal className="text-center mb-4">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[var(--fg)]">
             Почему <span className="gradient-text-violet glow-violet">тебе нужен</span>
             <br />
@@ -57,18 +58,20 @@ export default function Why() {
           </h2>
         </Reveal>
 
+        <p className="mb-12 text-center text-sm text-[var(--muted)]">
+          Нажми на карточку, чтобы узнать решение
+        </p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((item, index) => {
             const Icon = item.icon;
             return (
               <Reveal key={index} delay={index * 80}>
-                <div className="glass-card h-full rounded-2xl p-8 group">
-                  <Icon className="w-10 h-10 text-[var(--accent-icon)] mb-4 group-hover:scale-110 group-hover:text-[var(--accent-text)] transition" />
-                  <h3 className="text-lg font-semibold mb-3 text-[var(--fg)] leading-snug">
-                    {item.question}
-                  </h3>
-                  <p className="text-[var(--muted)] leading-relaxed">{item.answer}</p>
-                </div>
+                <FlipCard
+                  icon={<Icon className="h-10 w-10" />}
+                  front={item.question}
+                  back={item.answer}
+                />
               </Reveal>
             );
           })}
