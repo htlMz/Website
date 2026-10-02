@@ -3,7 +3,7 @@ import { TELEGRAM_LINK, SITE_NAME, NAME, BRAND } from "@/lib/site-config";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--fg)]/10 bg-white/[0.02] py-10 text-[var(--muted)]">
+    <footer className="border-t border-[var(--fg)]/10 bg-black/[0.02] py-10 text-[var(--muted)]">
       <Container>
         <div className="flex flex-col items-center gap-4 text-sm sm:flex-row sm:justify-between">
           <p className="font-medium text-[var(--fg)]">

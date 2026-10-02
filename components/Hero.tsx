@@ -14,7 +14,7 @@ export default function Hero() {
       <Container>
         <div className="relative grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--accent-2)]/30 bg-white/5 px-4 py-1.5 text-sm text-[var(--accent-text)]">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--accent-2)]/30 bg-white/50 px-4 py-1.5 text-sm text-[var(--accent-text)]">
               <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--accent-2)]" />
               Контент-продюсер
             </div>
@@ -51,7 +51,7 @@ export default function Hero() {
 
               <a
                 href="#portfolio"
-                className="rounded-full border border-[var(--fg)]/20 px-8 py-4 text-center font-medium transition hover:border-[var(--fg)]/40 hover:bg-white/5"
+                className="rounded-full border border-[var(--fg)]/20 px-8 py-4 text-center font-medium transition hover:border-[var(--fg)]/40 hover:bg-black/5"
               >
                 Посмотреть кейсы
               </a>
