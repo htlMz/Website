@@ -1,6 +1,7 @@
 import Container from "./Container";
 import { TELEGRAM_LINK } from "@/lib/site-config";
 import Reveal from "./Reveal";
+import PlatformBranches from "./PlatformBranches";
 
 export default function Hero() {
   return (
@@ -19,19 +20,13 @@ export default function Hero() {
               Контент-продюсер
             </div>
 
-            <h1 className="mb-8 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              Продвигаю
-              <br />
-              экспертов через
-              <br />
-              <span className="text-shimmer-gold relative inline-block font-bold italic drop-shadow-[0_0_30px_rgba(224,131,95,0.35)]">
-                REELS
-                <span className="absolute inset-0 -z-10 bg-[var(--accent-2)]/20 blur-2xl" />
-              </span>
-              <br />и строю
-              <br />
+            <h1 className="mb-6 max-w-xl text-3xl font-semibold leading-[1.25] tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+              Продвижение через{" "}
+              <span className="gradient-text-violet glow-violet">короткий контент</span> и
               личный бренд
             </h1>
+
+            <PlatformBranches />
 
             <p className="mb-10 max-w-xl text-lg leading-8 text-[var(--muted)]">
               Контент-стратегия: идеи, сценарии, монтаж и аналитика
