@@ -57,7 +57,7 @@ export default function AutoScrollRow({ children, speed = 1.3 }: AutoScrollRowPr
   return (
     <div
       ref={wrapperRef}
-      className="overflow-hidden"
+      className="w-full overflow-hidden"
       onMouseEnter={() => (pausedRef.current = true)}
       onMouseLeave={() => (pausedRef.current = false)}
       onTouchStart={() => (pausedRef.current = true)}

@@ -15,7 +15,7 @@ export default function NicheMarquee() {
   const row = [...niches, ...niches];
 
   return (
-    <div className="relative overflow-hidden border-y border-[var(--fg)]/10 bg-black/[0.02] py-5">
+    <div className="relative w-full overflow-hidden border-y border-[var(--fg)]/10 bg-black/[0.02] py-5">
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
         {row.map((niche, index) => (
           <span
