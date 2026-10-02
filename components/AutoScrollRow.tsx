@@ -13,11 +13,17 @@ export default function AutoScrollRow({ children, speed = 0.4 }: AutoScrollRowPr
 
   useEffect(() => {
     const el = scrollerRef.current;
+    console.log("[AutoScrollRow] mount effect, el:", el, "scrollWidth:", el?.scrollWidth);
     if (!el) return;
 
     let rafId: number;
+    let frame = 0;
 
     const tick = () => {
+      frame++;
+      if (frame % 60 === 0) {
+        console.log("[AutoScrollRow] tick", frame, "paused:", pausedRef.current, "scrollLeft:", el.scrollLeft, "scrollWidth:", el.scrollWidth);
+      }
       if (!pausedRef.current) {
         const half = el.scrollWidth / 2;
         el.scrollLeft += speed;
