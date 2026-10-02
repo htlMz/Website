@@ -34,7 +34,7 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
           observer.disconnect();
         }
       },
-      { rootMargin: "150px 0px" }
+      { rootMargin: "50px 0px" }
     );
 
     observer.observe(card);
@@ -56,7 +56,7 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
           video.pause();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.5 }
     );
 
     observer.observe(card);
