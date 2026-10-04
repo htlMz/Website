@@ -22,7 +22,7 @@ export default function Hero() {
 
             <h1 className="mb-6 max-w-xl text-4xl font-semibold leading-[1.2] tracking-[-0.02em] sm:text-5xl lg:text-6xl">
               Продвижение через{" "}
-              <span className="gradient-text-violet glow-violet">короткий контент</span>
+              <span className="gradient-text-violet glow-violet">короткие ролики</span>
             </h1>
 
             <PlatformBranches />
