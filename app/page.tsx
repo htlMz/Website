@@ -19,12 +19,12 @@ export default function Home() {
       <Hero />
       <NicheMarquee />
       <Services />
-      <Formats />
       <Process />
       <Why />
       <Whyitworks />
       <Portfolio />
       <FAQ />
+      <Formats />
       <Quiz />
       <CTA />
       <Footer />
