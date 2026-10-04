@@ -1,6 +1,6 @@
 import Container from "./Container";
 import Reveal from "./Reveal";
-import { NAME } from "@/lib/site-config";
+import { NAME, BRAND } from "@/lib/site-config";
 
 // Цифры проверяемые: кейсы и ниши считаются по портфолио на этой же странице
 const facts = [
@@ -40,19 +40,34 @@ export default function About() {
 
               <div className="flex flex-col justify-center p-6 sm:p-10">
                 <p className="text-3xl font-semibold text-[var(--fg)] sm:text-4xl">
-                  {NAME} <span className="text-shimmer-gold">ЛОГОС</span>
+                  {NAME} <span className="text-shimmer-gold">{BRAND}</span>
                 </p>
                 <p className="mt-2 text-lg text-[var(--accent-text)]">
                   CEO и креативный директор
                 </p>
 
-                <div className="mt-5 space-y-3 text-base leading-relaxed text-[var(--muted)]">
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-[var(--muted)]">
                   <p>
-                    Глубокое погружение в твою ситуацию. Понятная траектория и
-                    конкретные шаги на пути к поставленной цели, а не типичное
-                    впаривание услуг
+                    Глубокое{" "}
+                    <span className="gradient-text-violet font-medium">
+                      погружение
+                    </span>{" "}
+                    в твою ситуацию
                   </p>
-                  <p>Процесс и результат сольются воедино</p>
+                  <p>
+                    Понятная{" "}
+                    <span className="gradient-text-violet font-medium">
+                      траектория
+                    </span>{" "}
+                    и конкретные{" "}
+                    <span className="gradient-text-violet font-medium">
+                      действия
+                    </span>{" "}
+                    на пути к поставленной цели, а не типичное впаривание услуг
+                  </p>
+                  <p className="pt-1 font-serif text-lg italic text-[var(--fg)]/80">
+                    Процесс и результат сольются воедино
+                  </p>
                 </div>
 
                 <dl className="mt-8 grid grid-cols-1 gap-5 border-t border-[var(--fg)]/10 pt-6 sm:grid-cols-3">
