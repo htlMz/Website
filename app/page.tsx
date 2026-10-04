@@ -4,6 +4,7 @@ import NicheMarquee from "@/components/NicheMarquee";
 import Services from "@/components/Services";
 import Formats from "@/components/Formats";
 import Quiz from "@/components/Quiz";
+import About from "@/components/About";
 import Process from "@/components/Process";
 import Why from "@/components/Why";
 import Whyitworks from "@/components/Whyitworks";
@@ -26,6 +27,7 @@ export default function Home() {
       <FAQ />
       <Formats />
       <Quiz />
+      <About />
       <CTA />
       <Footer />
     </main>
