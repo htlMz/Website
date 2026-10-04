@@ -16,10 +16,6 @@ export default function About() {
 
       <Container>
         <Reveal className="mb-10">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[var(--accent-text)]">
-            Кто делает
-          </p>
-
           <h2 className="text-4xl font-semibold tracking-[-0.03em] text-[var(--fg)] md:text-5xl lg:text-6xl">
             Кто отвечает
             <br />

@@ -17,7 +17,7 @@ export default function Hero() {
           <Reveal>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--accent-2)]/30 bg-white/50 px-4 py-1.5 text-sm text-[var(--accent-text)]">
               <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--accent-2)]" />
-              Контент-продюсер
+              Контент-продюсирование
             </div>
 
             <h1 className="mb-6 max-w-xl text-4xl font-semibold leading-[1.2] tracking-[-0.02em] sm:text-5xl lg:text-6xl">

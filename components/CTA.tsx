@@ -1,4 +1,5 @@
 import Container from "./Container";
+import { FaTelegram } from "react-icons/fa6";
 import { TELEGRAM_LINK } from "@/lib/site-config";
 import Reveal from "./Reveal";
 
@@ -21,16 +22,20 @@ export default function CTA() {
             </h2>
 
             <p className="relative mx-auto mb-10 max-w-xl text-lg leading-7 text-[var(--muted)]">
-              Созвон в Telegram: расскажи о своей нише и целях — предложу
-              реалистичный план, без готовых шаблонов и завышенных обещаний.
+              Предложу реалистичный план, без готовых шаблонов и завышенных
+              обещаний
             </p>
 
             <a
               href={TELEGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-block rounded-full bg-gradient-to-r from-[var(--accent-1)] to-[var(--accent-2)] px-10 py-4 font-medium text-white shadow-lg shadow-[var(--accent-2)]/25 transition hover:scale-[1.03] hover:shadow-[var(--accent-2)]/40"
+              className="relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[var(--accent-1)] to-[var(--accent-2)] px-10 py-4 font-medium text-white shadow-lg shadow-[var(--accent-2)]/25 transition hover:scale-[1.03] hover:shadow-[var(--accent-2)]/40"
             >
+              {/* белая подложка: у круглой иконки самолётик вырезан насквозь */}
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white">
+                <FaTelegram className="h-6 w-6 text-[#2AABEE]" />
+              </span>
               Написать в Telegram
             </a>
           </div>
