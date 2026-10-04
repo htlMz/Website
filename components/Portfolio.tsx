@@ -5,7 +5,7 @@ import AutoScrollRow from "./AutoScrollRow";
 
 // Порядок подобран так, чтобы одинаковые ниши не стояли рядом.
 // Лента зациклена, поэтому последний кейс тоже не должен совпадать с первым:
-// нутрициологи идут через одного (2, 4, 6, 8), дизайнеры разведены на 3 и 9.
+// нутрициологи стоят на 2, 4, 7, 9, дизайнеры разведены на 3 и 10.
 const cases = [
   {
     id: "case-1-lifecoach",
@@ -30,6 +30,12 @@ const cases = [
     title: "Reels для нутрициолога",
     category: "Здоровье",
     video: "/video/case-8-nutr.MP4",
+  },
+  {
+    id: "case-11-psychomentor",
+    title: "Reels для психолога-ментора",
+    category: "Психология",
+    video: "/video/case-11-psychomentor.mp4",
   },
   {
     id: "case-4-AI",
