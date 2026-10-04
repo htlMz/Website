@@ -20,12 +20,12 @@ export default function Home() {
       <NicheMarquee />
       <Services />
       <Formats />
-      <Quiz />
       <Process />
       <Why />
       <Whyitworks />
       <Portfolio />
       <FAQ />
+      <Quiz />
       <CTA />
       <Footer />
     </main>
