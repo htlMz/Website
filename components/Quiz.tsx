@@ -6,13 +6,7 @@ import Container from "./Container";
 import Reveal from "./Reveal";
 import { TELEGRAM_LINK } from "@/lib/site-config";
 
-type FormatKey =
-  | "consult"
-  | "strategy"
-  | "scripts"
-  | "editing"
-  | "reels"
-  | "producing";
+type FormatKey = "consult" | "editing" | "reels" | "producing";
 
 type Points = Partial<Record<FormatKey, number>>;
 
@@ -20,14 +14,6 @@ const results: Record<FormatKey, { title: string; text: string }> = {
   consult: {
     title: "Консультация по продвижению",
     text: "Сначала нужно понять, что мешает блогу расти. Разберём всё на одном созвоне",
-  },
-  strategy: {
-    title: "Контент-стратегия",
-    text: "Снимать для тебя не проблема, не хватает понятного плана",
-  },
-  scripts: {
-    title: "Сценарии под ключ",
-    text: "Идеи и сценарии беру на себя, съёмка и монтаж остаются у тебя",
   },
   editing: {
     title: "Монтаж под ключ",
@@ -43,17 +29,19 @@ const results: Record<FormatKey, { title: string; text: string }> = {
   },
 };
 
+// Контент-стратегия входит в консультацию, сценарии — в Reels под ключ,
+// поэтому их баллы здесь уже сведены к родительским форматам
 const questions: { question: string; options: { label: string; points: Points }[] }[] = [
   {
     question: "На каком ты этапе?",
     options: [
       {
         label: "Блог только начинаю или почти не веду",
-        points: { strategy: 2, consult: 1 },
+        points: { consult: 2 },
       },
       {
         label: "Снимаю регулярно, но результата нет",
-        points: { consult: 2, reels: 1, strategy: 1 },
+        points: { consult: 2, reels: 1 },
       },
       {
         label: "Блог работает, хочу масштабировать",
@@ -65,17 +53,14 @@ const questions: { question: string; options: { label: string; points: Points }[
     question: "Сколько времени готов тратить на контент в неделю?",
     options: [
       { label: "1-2 часа, только съёмка", points: { producing: 2, reels: 1 } },
-      { label: "3-5 часов", points: { scripts: 1, editing: 1, reels: 1 } },
-      {
-        label: "Сколько нужно, хочу разобраться сам",
-        points: { consult: 2, strategy: 1 },
-      },
+      { label: "3-5 часов", points: { editing: 1, reels: 1 } },
+      { label: "Сколько нужно, хочу разобраться сам", points: { consult: 2 } },
     ],
   },
   {
     question: "Что сложнее всего?",
     options: [
-      { label: "Не знаю, что снимать", points: { scripts: 2, strategy: 1 } },
+      { label: "Не знаю, что снимать", points: { reels: 2, consult: 1 } },
       { label: "Нет времени или навыка монтировать", points: { editing: 2 } },
       { label: "Не понимаю, почему нет результата", points: { consult: 2 } },
       { label: "Всё сразу", points: { producing: 2, reels: 1 } },
@@ -84,13 +69,10 @@ const questions: { question: string; options: { label: string; points: Points }[
   {
     question: "Что для тебя важнее?",
     options: [
-      {
-        label: "Понять, что делать, и делать самому",
-        points: { consult: 2, strategy: 2 },
-      },
+      { label: "Понять, что делать, и делать самому", points: { consult: 2 } },
       {
         label: "Чтобы часть работы делал кто-то другой",
-        points: { reels: 2, scripts: 1, editing: 1 },
+        points: { reels: 2, editing: 1 },
       },
       { label: "Чтобы всё делали за меня", points: { producing: 2 } },
     ],

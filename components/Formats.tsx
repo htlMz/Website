@@ -1,12 +1,5 @@
 import Container from "./Container";
-import {
-  MessagesSquare,
-  Map,
-  PenLine,
-  Scissors,
-  Clapperboard,
-  Rocket,
-} from "lucide-react";
+import { MessagesSquare, Scissors, Clapperboard, Rocket } from "lucide-react";
 import Reveal from "./Reveal";
 
 const formats = [
@@ -14,26 +7,10 @@ const formats = [
     title: "Консультация по продвижению",
     forWhom: "Блог есть, но непонятно, что не так и куда двигаться",
     includes: "Созвон-разбор блога: профиль, контент, воронка",
-    result: "Список конкретных правок и понятные следующие шаги",
+    result:
+      "Список конкретных правок и готовый документ с контент-планом",
     billing: "Разово",
     icon: MessagesSquare,
-  },
-  {
-    title: "Контент-стратегия",
-    forWhom: "Готов снимать, но не знаешь что",
-    includes:
-      "Анализ ниши, аудитории и конкурентов, темы и форматы, план по неделям на 1-3 месяца",
-    result: "Документ, по которому снимаешь без вопроса «что сегодня снять»",
-    billing: "Разово",
-    icon: Map,
-  },
-  {
-    title: "Сценарии под ключ",
-    forWhom: "Снимаешь и монтируешь, но идеи заканчиваются",
-    includes: "Идеи, сценарии с хуком и призывом, раскадровка",
-    result: "Готовые сценарии, остаётся включить камеру",
-    billing: "Помесячно",
-    icon: PenLine,
   },
   {
     title: "Монтаж под ключ",
@@ -58,6 +35,8 @@ const formats = [
       "Стратегия, упаковка профиля, сценарии, монтаж, воронка в Telegram, аналитика",
     result:
       "Система, которая приводит клиентов. От тебя съёмка 2-5 часов в неделю",
+    extra:
+      "Также: воронки, запуски онлайн-продуктов и сопровождение. Обсуждаем индивидуально",
     billing: "Помесячно",
     icon: Rocket,
   },
@@ -75,7 +54,7 @@ export default function Formats() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {formats.map((format, index) => {
             const Icon = format.icon;
             return (
@@ -110,6 +89,9 @@ export default function Formats() {
                         Результат
                       </dt>
                       <dd className="font-medium text-[var(--fg)]">{format.result}</dd>
+                      {format.extra && (
+                        <dd className="mt-3 text-[var(--muted)]">{format.extra}</dd>
+                      )}
                     </div>
                   </dl>
                 </div>
@@ -117,13 +99,6 @@ export default function Formats() {
             );
           })}
         </div>
-
-        <Reveal className="mt-10 text-center">
-          <p className="text-sm leading-relaxed text-[var(--muted)]">
-            Также: воронки, запуски онлайн-продуктов и сопровождение. Обсуждаем
-            индивидуально
-          </p>
-        </Reveal>
       </Container>
     </section>
   );
