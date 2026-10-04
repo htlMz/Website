@@ -40,17 +40,20 @@ export default function About() {
 
               <div className="flex flex-col justify-center p-6 sm:p-10">
                 <p className="text-3xl font-semibold text-[var(--fg)] sm:text-4xl">
-                  {NAME}
+                  {NAME} <span className="text-shimmer-gold">ЛОГОС</span>
                 </p>
                 <p className="mt-2 text-lg text-[var(--accent-text)]">
                   CEO и креативный директор
                 </p>
 
-                <p className="mt-5 text-base leading-relaxed text-[var(--muted)]">
-                  Стратегия, идеи и сценарии — на мне. Монтаж — на монтажёре.
-                  Вдвоём закрываем весь путь ролика, от замысла до цифр после
-                  публикации.
-                </p>
+                <div className="mt-5 space-y-3 text-base leading-relaxed text-[var(--muted)]">
+                  <p>
+                    Глубокое погружение в твою ситуацию. Понятная траектория и
+                    конкретные шаги на пути к поставленной цели, а не типичное
+                    впаривание услуг
+                  </p>
+                  <p>Процесс и результат сольются воедино</p>
+                </div>
 
                 <dl className="mt-8 grid grid-cols-1 gap-5 border-t border-[var(--fg)]/10 pt-6 sm:grid-cols-3">
                   {facts.map((fact) => (
