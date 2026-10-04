@@ -3,6 +3,9 @@ import VideoCard from "./VideoCard";
 import Reveal from "./Reveal";
 import AutoScrollRow from "./AutoScrollRow";
 
+// Порядок подобран так, чтобы одинаковые ниши не стояли рядом.
+// Лента зациклена, поэтому последний кейс тоже не должен совпадать с первым:
+// нутрициологи идут через одного (2, 4, 6, 8), дизайнеры разведены на 3 и 9.
 const cases = [
   {
     id: "case-1-lifecoach",
@@ -11,40 +14,16 @@ const cases = [
     video: "/video/case-1-lifecoach.MP4",
   },
   {
-    id: "case-2-designer",
-    title: "Reels для дизайнера",
-    category: "Личный бренд",
-    video: "/video/case-2-designer.mp4",
-  },
-  {
-    id: "case-3-designer",
-    title: "Reels для дизайнера",
-    category: "Личный бренд",
-    video: "/video/case-3-designer.mp4",
-  },
-  {
-    id: "case-4-AI",
-    title: "Reels в нише AI",
-    category: "Технологии",
-    video: "/video/case-4-AI.MP4",
-  },
-  {
-    id: "case-5-invest",
-    title: "Reels для инвестора",
-    category: "Финансы",
-    video: "/video/case-5-invest.mp4",
-  },
-  {
-    id: "case-6-infobiz",
-    title: "Reels для инфобизнеса",
-    category: "Образование",
-    video: "/video/case-6-infobiz.mp4",
-  },
-  {
     id: "case-7-nutr",
     title: "Reels для нутрициолога",
     category: "Здоровье",
     video: "/video/case-7-nutr.MP4",
+  },
+  {
+    id: "case-2-designer",
+    title: "Reels для дизайнера",
+    category: "Личный бренд",
+    video: "/video/case-2-designer.mp4",
   },
   {
     id: "case-8-nutr",
@@ -53,16 +32,40 @@ const cases = [
     video: "/video/case-8-nutr.MP4",
   },
   {
+    id: "case-4-AI",
+    title: "Reels в нише AI",
+    category: "Технологии",
+    video: "/video/case-4-AI.MP4",
+  },
+  {
     id: "case-9-nutrW",
     title: "Reels для нутрициолога",
     category: "Здоровье",
     video: "/video/case-9-nutrW.mp4",
   },
   {
+    id: "case-5-invest",
+    title: "Reels для инвестора",
+    category: "Финансы",
+    video: "/video/case-5-invest.mp4",
+  },
+  {
     id: "case-10-nutrW",
     title: "Reels для нутрициолога",
     category: "Здоровье",
     video: "/video/case-10-nutrW.mp4",
+  },
+  {
+    id: "case-3-designer",
+    title: "Reels для дизайнера",
+    category: "Личный бренд",
+    video: "/video/case-3-designer.mp4",
+  },
+  {
+    id: "case-6-infobiz",
+    title: "Reels для инфобизнеса",
+    category: "Образование",
+    video: "/video/case-6-infobiz.mp4",
   },
 ];
 
