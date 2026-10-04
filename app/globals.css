@@ -46,25 +46,44 @@ body {
 }
 
 /* Декоративные цветные пятна-сияния внутри секций (статичные — без анимации transform, это дорого при blur) */
+/* Пятна — многоступенчатый радиальный градиент вместо filter: blur().
+   Выглядит так же мягко, но не требует дорогого GPU-прохода на каждый кадр */
 .glow-orb {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(60px);
   opacity: 0.8;
   z-index: -1;
 }
 
 .glow-orb-violet {
-  background: radial-gradient(circle, rgba(139, 95, 209, 0.3), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(139, 95, 209, 0.3) 0%,
+    rgba(139, 95, 209, 0.16) 40%,
+    rgba(139, 95, 209, 0.05) 65%,
+    transparent 82%
+  );
 }
 
 .glow-orb-pink {
-  background: radial-gradient(circle, rgba(214, 103, 154, 0.28), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(214, 103, 154, 0.28) 0%,
+    rgba(214, 103, 154, 0.15) 40%,
+    rgba(214, 103, 154, 0.05) 65%,
+    transparent 82%
+  );
 }
 
 .glow-orb-fuchsia {
-  background: radial-gradient(circle, rgba(107, 100, 120, 0.3), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(107, 100, 120, 0.3) 0%,
+    rgba(107, 100, 120, 0.16) 40%,
+    rgba(107, 100, 120, 0.05) 65%,
+    transparent 82%
+  );
 }
 
 .animate-drift {
@@ -150,10 +169,11 @@ body {
   border: 1px solid rgba(217, 164, 65, 0.2);
 }
 
+/* Без backdrop-filter: минификатор оставляет от него только -webkit-версию,
+   поэтому в Chrome размытия всё равно нет, а в Safari оно есть и заметно тормозит.
+   Непрозрачность фона поднята, чтобы карточка читалась так же */
 .glass-card {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.3));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.38));
   border: 1px solid rgba(139, 95, 209, 0.2);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -168,11 +188,8 @@ body {
 /* Та же "стеклянная" заливка, но без hover-transform — для граней флип-карточек,
    которым transform нужен отдельно, под поворот (конфликтуют, если делить с glass-card) */
 .flip-face {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.3));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.38));
   border: 1px solid rgba(139, 95, 209, 0.2);
-  transition: border-color 0.4s ease, background 0.4s ease;
 }
 
 .flip-face:hover {
@@ -196,14 +213,27 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Подстраховка: минификатор вырезает -webkit- префиксы, а backface-visibility
+   срабатывает не во всех браузерах внутри preserve-3d — поэтому нижнюю грань
+   дополнительно гасим через visibility ровно на середине поворота (0.25s из 0.5s) */
 .flip-face-front,
 .flip-face-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition: border-color 0.4s ease, background 0.4s ease, visibility 0s linear 0.25s;
 }
 
 .flip-face-back {
   transform: rotateY(180deg);
+  visibility: hidden;
+}
+
+.flip-rotator.is-flipped .flip-face-front {
+  visibility: hidden;
+}
+
+.flip-rotator.is-flipped .flip-face-back {
+  visibility: visible;
 }
 
 /* Анимированный градиентный фон */

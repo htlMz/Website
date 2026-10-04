@@ -16,7 +16,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full max-w-[100vw] border-b border-[var(--fg)]/10 bg-[var(--bg-top)]/70 backdrop-blur-xl">
+    <header className="fixed left-0 top-0 z-50 w-full max-w-[100vw] border-b border-[var(--fg)]/10 bg-[var(--bg-top)]/85 backdrop-blur-md">
       <Container>
         <div className="flex h-20 items-center justify-between">
           <a href="#" className="text-xl font-semibold text-[var(--fg)]">

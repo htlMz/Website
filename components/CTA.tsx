@@ -8,8 +8,8 @@ export default function CTA() {
       <Container>
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-[var(--accent-2)]/25 bg-gradient-to-br from-white/70 to-white/30 px-6 py-16 text-center sm:px-12">
-            <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--accent-2)]/25 blur-[120px]" />
-            <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-[var(--accent-1)]/25 blur-[110px]" />
+            <div className="glow-orb-pink pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full" />
+            <div className="glow-orb-violet pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full" />
 
             <p className="relative mb-4 text-sm uppercase tracking-[0.3em] text-[var(--accent-text)]">
               Бесплатный разбор

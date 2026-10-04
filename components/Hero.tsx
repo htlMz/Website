@@ -52,7 +52,7 @@ export default function Hero() {
 
           <Reveal delay={150}>
             <div className="relative hidden items-center justify-center lg:flex">
-              <div className="absolute h-125 w-125 rounded-full bg-[var(--accent-2)]/20 blur-[140px]" />
+              <div className="glow-orb-pink pointer-events-none absolute h-125 w-125 rounded-full" />
 
               <div className="absolute right-6 top-10 h-130 w-62 -rotate-6 overflow-hidden rounded-[40px] border border-[var(--fg)]/10 bg-[#0f0e14] opacity-70 shadow-2xl">
                 <video

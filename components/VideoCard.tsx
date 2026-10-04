@@ -102,13 +102,13 @@ export default function VideoCard({ src, title, category }: VideoCardProps) {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
 
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span className="flex items-center gap-2 rounded-full bg-black/55 px-4 py-2 text-sm font-medium text-white backdrop-blur">
+          <span className="flex items-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm font-medium text-white">
             <Play className="h-4 w-4 fill-white" />
             Смотреть
           </span>
         </div>
 
-        <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur transition group-hover:opacity-0">
+        <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white transition group-hover:opacity-0">
           <Play className="h-3.5 w-3.5 fill-white" />
         </div>
 
