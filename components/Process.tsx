@@ -101,7 +101,7 @@ export default function Process() {
 
         <Reveal className="text-center mt-14">
           <p className="text-xl md:text-2xl lg:text-3xl font-serif italic font-semibold text-shimmer-gold glow-violet-strong">
-            От вас — только 4-5 часов за всю неделю
+            От вас — только 2-5 часов за всю неделю
           </p>
         </Reveal>
       </Container>
