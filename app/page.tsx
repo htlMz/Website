@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import NicheMarquee from "@/components/NicheMarquee";
 import Services from "@/components/Services";
+import Formats from "@/components/Formats";
+import Quiz from "@/components/Quiz";
 import Process from "@/components/Process";
 import Why from "@/components/Why";
 import Whyitworks from "@/components/Whyitworks";
@@ -17,6 +19,8 @@ export default function Home() {
       <Hero />
       <NicheMarquee />
       <Services />
+      <Formats />
+      <Quiz />
       <Process />
       <Why />
       <Whyitworks />

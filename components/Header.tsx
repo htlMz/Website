@@ -7,6 +7,8 @@ import { TELEGRAM_LINK } from "@/lib/site-config";
 
 const links = [
   { href: "#services", label: "Услуги" },
+  { href: "#formats", label: "Форматы" },
+  { href: "#quiz", label: "Подбор" },
   { href: "#process", label: "Процесс" },
   { href: "#portfolio", label: "Кейсы" },
   { href: "#faq", label: "Вопросы" },
