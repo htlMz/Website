@@ -11,7 +11,7 @@ const steps = [
   {
     number: "02",
     title: "Анализ ниши",
-    description: "Сканируем рынок и тренды под твою экспертность",
+    description: "Сканируем рынок под твою экспертность",
     time: "", // пусто — бейдж не покажется
   },
   {
@@ -101,7 +101,7 @@ export default function Process() {
 
         <Reveal className="text-center mt-14">
           <p className="text-xl md:text-2xl lg:text-3xl font-serif italic font-semibold text-shimmer-gold glow-violet-strong">
-            С тебя — 3-4 часа в неделю
+            От вас — только 4-5 часов за всю неделю
             <br />
             <br />
             Минимум твоего времени — максимум результата
