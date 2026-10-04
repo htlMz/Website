@@ -67,17 +67,24 @@ export default function Why() {
           Нажми на карточку, чтобы узнать решение
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Карточки — горизонтальная лента, как в разделе шагов */}
+        <div
+          className="flex gap-4 overflow-x-auto pb-6 pt-2"
+          style={{
+            scrollbarColor: "var(--accent-2) var(--bg-mid)",
+            scrollbarWidth: "thin",
+          }}
+        >
           {reasons.map((item, index) => {
             const Icon = item.icon;
             return (
-              <Reveal key={index} delay={index * 80}>
+              <div key={index} className="w-70 shrink-0 sm:w-75">
                 <FlipCard
                   icon={<Icon className="h-10 w-10" />}
                   front={item.question}
                   back={item.answer}
                 />
-              </Reveal>
+              </div>
             );
           })}
         </div>
