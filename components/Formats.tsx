@@ -1,6 +1,37 @@
 import Container from "./Container";
-import { MessagesSquare, Scissors, Clapperboard, Rocket } from "lucide-react";
+import { MessagesSquare, Rocket } from "lucide-react";
 import Reveal from "./Reveal";
+
+// Значки программ монтажа: логотипы Adobe нельзя взять из пакетов иконок
+// (их убрали по требованию правообладателя), поэтому рисуем свои в палитре сайта
+function ToolBadge({ label }: { label: string }) {
+  return (
+    <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--accent-1)]/35 bg-[var(--accent-1)]/10 text-sm font-semibold">
+      {label}
+    </span>
+  );
+}
+
+function ReelsIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-9 w-9"
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <path d="M2.8 8.6h18.4" />
+      <path d="m7.2 2.7 3.3 5.9" />
+      <path d="m13.6 2.7 3.3 5.9" />
+      <path d="M10.4 12.4v5l4.4-2.5z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 const formats = [
   {
@@ -11,7 +42,7 @@ const formats = [
     result:
       "Список конкретных правок и готовый документ с контент-планом",
     billing: "Разово",
-    icon: MessagesSquare,
+    icon: <MessagesSquare className="h-9 w-9" />,
   },
   {
     title: "Монтаж под ключ",
@@ -19,7 +50,12 @@ const formats = [
     includes: "Монтаж, субтитры, звук, обложки",
     result: "Готовые к публикации ролики",
     billing: "Помесячно",
-    icon: Scissors,
+    icon: (
+      <div className="flex gap-2">
+        <ToolBadge label="Pr" />
+        <ToolBadge label="Ae" />
+      </div>
+    ),
   },
   {
     title: "Reels под ключ",
@@ -27,7 +63,7 @@ const formats = [
     includes: "Идеи, сценарии, раскадровка, монтаж, обложки",
     result: "От тебя только съёмка",
     billing: "Помесячно",
-    icon: Clapperboard,
+    icon: <ReelsIcon />,
   },
   {
     title: "Полное продюсирование",
@@ -39,7 +75,7 @@ const formats = [
     extra:
       "Также: воронки, запуски онлайн-продуктов и сопровождение. Обсуждаем индивидуально",
     billing: "Помесячно",
-    icon: Rocket,
+    icon: <Rocket className="h-9 w-9" />,
   },
 ];
 
@@ -57,12 +93,13 @@ export default function Formats() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {formats.map((format, index) => {
-            const Icon = format.icon;
             return (
               <Reveal key={format.title} delay={index * 80}>
                 <div className="glass-card flex h-full flex-col rounded-2xl p-7">
                   <div className="mb-4 flex items-start justify-between gap-3">
-                    <Icon className="h-9 w-9 shrink-0 text-[var(--accent-icon)]" />
+                    <div className="shrink-0 text-[var(--accent-icon)]">
+                      {format.icon}
+                    </div>
                     <span className="shrink-0 rounded-full border border-[var(--accent-2)]/30 bg-[var(--accent-2)]/10 px-3 py-1 text-xs font-medium text-[var(--accent-text)]">
                       {format.billing}
                     </span>
