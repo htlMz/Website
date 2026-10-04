@@ -1,5 +1,5 @@
 import Container from "./Container";
-import { TELEGRAM_LINK, SITE_NAME, NAME, BRAND } from "@/lib/site-config";
+import { TELEGRAM_LINK, SITE_NAME, BRAND } from "@/lib/site-config";
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
       <Container>
         <div className="flex flex-col items-center gap-4 text-sm sm:flex-row sm:justify-between">
           <p className="font-medium text-[var(--fg)]">
-            {NAME} <span className="text-shimmer-gold">{BRAND}</span>
+            <span className="text-shimmer-gold">{BRAND}</span>
           </p>
 
           <nav className="flex gap-6">

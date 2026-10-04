@@ -1,6 +1,6 @@
 import Container from "./Container";
 import Reveal from "./Reveal";
-import { NAME, BRAND } from "@/lib/site-config";
+import { NAME, STAGE_NAME } from "@/lib/site-config";
 
 // Цифры проверяемые: кейсы и ниши считаются по портфолио на этой же странице
 const facts = [
@@ -40,7 +40,7 @@ export default function About() {
 
               <div className="flex flex-col justify-center p-6 sm:p-10">
                 <p className="text-3xl font-semibold text-[var(--fg)] sm:text-4xl">
-                  {NAME} <span className="text-shimmer-gold">{BRAND}</span>
+                  {NAME} <span className="text-shimmer-gold">{STAGE_NAME}</span>
                 </p>
                 <p className="mt-2 text-lg text-[var(--accent-text)]">
                   CEO и креативный директор

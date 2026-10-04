@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Эмиль L0G0$.prod — продюсирование экспертов в Reels",
+  title: "L0G0$.prod — продюсирование экспертов в Reels",
   description:
     "Контент-стратегия, сценарии, монтаж и аналитика для экспертов. Продвигаю через Reels и строю личный бренд.",
 };

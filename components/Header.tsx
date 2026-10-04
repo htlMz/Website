@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "./Container";
-import { TELEGRAM_LINK, NAME, BRAND } from "@/lib/site-config";
+import { TELEGRAM_LINK, BRAND } from "@/lib/site-config";
 
 const links = [
   { href: "#services", label: "Услуги" },
@@ -22,7 +22,7 @@ export default function Header() {
       <Container>
         <div className="flex h-20 items-center justify-between">
           <a href="#" className="text-xl font-semibold text-[var(--fg)]">
-            {NAME} <span className="text-shimmer-gold">{BRAND}</span>
+            <span className="text-shimmer-gold">{BRAND}</span>
           </a>
 
           <nav className="hidden gap-8 text-sm text-[var(--muted)] md:flex">
