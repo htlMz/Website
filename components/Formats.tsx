@@ -1,14 +1,34 @@
 import Container from "./Container";
-import { MessagesSquare, Rocket } from "lucide-react";
+import type { ReactNode } from "react";
+import { Rocket } from "lucide-react";
+import { SiZoom } from "react-icons/si";
 import Reveal from "./Reveal";
 
-// Значки программ монтажа: логотипы Adobe нельзя взять из пакетов иконок
-// (их убрали по требованию правообладателя), поэтому рисуем свои в палитре сайта
-function ToolBadge({ label }: { label: string }) {
+// Плашка под значок инструмента. Логотипы Adobe и Яндекс.Телемоста
+// отсутствуют в пакетах иконок, поэтому часть значков нарисована своими силами
+function ToolBadge({ children }: { children: ReactNode }) {
   return (
     <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--accent-1)]/35 bg-[var(--accent-1)]/10 text-sm font-semibold">
-      {label}
+      {children}
     </span>
+  );
+}
+
+function TelemostIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-5 w-5"
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="6" width="12.5" height="12" rx="3.5" />
+      <path d="M15 11.2l5-3.1a.6.6 0 0 1 .9.5v6.8a.6.6 0 0 1-.9.5l-5-3.1z" />
+    </svg>
   );
 }
 
@@ -42,7 +62,16 @@ const formats = [
     result:
       "Список конкретных правок и готовый документ с контент-планом",
     billing: "Разово",
-    icon: <MessagesSquare className="h-9 w-9" />,
+    icon: (
+      <div className="flex gap-2">
+        <ToolBadge>
+          <SiZoom className="h-5 w-5" />
+        </ToolBadge>
+        <ToolBadge>
+          <TelemostIcon />
+        </ToolBadge>
+      </div>
+    ),
   },
   {
     title: "Монтаж под ключ",
@@ -52,8 +81,8 @@ const formats = [
     billing: "Помесячно",
     icon: (
       <div className="flex gap-2">
-        <ToolBadge label="Pr" />
-        <ToolBadge label="Ae" />
+        <ToolBadge>Pr</ToolBadge>
+        <ToolBadge>Ae</ToolBadge>
       </div>
     ),
   },
