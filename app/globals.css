@@ -179,6 +179,33 @@ body {
   border-color: rgba(214, 103, 154, 0.45);
 }
 
+/* 3D-переворот карточек — с вендорными префиксами: без -webkit- backface-visibility
+   не скрывается на iOS Safari и части мобильных браузеров, обе стороны просвечивают разом */
+.flip-perspective {
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
+}
+
+.flip-rotator {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+.flip-rotator.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face-front,
+.flip-face-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
 /* Анимированный градиентный фон */
 .hero-glow {
   position: absolute;
