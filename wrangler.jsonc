@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "logos-prod",
+  "compatibility_date": "2026-10-04",
+  // Статика из next build (output: "export") — раздаётся напрямую, без сервера.
+  // Серверные роуты при необходимости добавляются сюда же через "main".
+  "assets": {
+    "directory": "./out"
+  }
+}
