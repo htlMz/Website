@@ -31,7 +31,13 @@ const results: Record<FormatKey, { title: string; text: string }> = {
 
 // Контент-стратегия входит в консультацию, сценарии — в Reels под ключ,
 // поэтому их баллы здесь уже сведены к родительским форматам
-const questions: { question: string; options: { label: string; points: Points }[] }[] = [
+const questions: {
+  question: string;
+  // при равенстве баллов побеждает формат, набравший очки в этом вопросе —
+  // он про главную сложность, то есть самый точный
+  keyQuestion?: boolean;
+  options: { label: string; points: Points }[];
+}[] = [
   {
     question: "На каком ты этапе?",
     options: [
@@ -59,6 +65,7 @@ const questions: { question: string; options: { label: string; points: Points }[
   },
   {
     question: "Что сложнее всего?",
+    keyQuestion: true,
     options: [
       { label: "Не знаю, что снимать", points: { reels: 2, consult: 1 } },
       { label: "Нет времени или навыка монтировать", points: { editing: 2 } },
@@ -77,12 +84,21 @@ const questions: { question: string; options: { label: string; points: Points }[
       { label: "Чтобы всё делали за меня", points: { producing: 2 } },
     ],
   },
+  // Вопрос про продукт влияет только на пару «консультация — продюсирование»:
+  // он про то, что человек продаёт, а не про то, кто делает работу.
+  // Иначе он перебивал бы ответ о главной сложности из ключевого вопроса
+  {
+    question: "Есть ли у тебя продукт, который ты продаёшь?",
+    options: [
+      { label: "Пока нет, только идея", points: { consult: 2 } },
+      { label: "Есть, но продажи нестабильные", points: { producing: 2 } },
+      { label: "Есть, продажи идут стабильно", points: { producing: 1 } },
+    ],
+  },
 ];
 
 const KEYS = Object.keys(results) as FormatKey[];
 
-// При равенстве баллов побеждает формат, набравший баллы в вопросе 3 —
-// он про главную сложность, то есть самый точный
 function rank(answers: number[]) {
   const totals = {} as Record<FormatKey, number>;
   for (const key of KEYS) totals[key] = 0;
@@ -92,7 +108,8 @@ function rank(answers: number[]) {
     for (const key of KEYS) totals[key] += points[key] ?? 0;
   });
 
-  const tieBreaker = questions[2].options[answers[2]].points;
+  const keyIndex = questions.findIndex((q) => q.keyQuestion);
+  const tieBreaker = questions[keyIndex].options[answers[keyIndex]].points;
 
   return KEYS.map((key) => ({
     key,
