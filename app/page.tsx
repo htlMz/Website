@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Process from "@/components/Process";
 import Why from "@/components/Why";
 import Whyitworks from "@/components/Whyitworks";
+import Standards from "@/components/Standards";
 import Portfolio from "@/components/Portfolio";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
@@ -23,6 +24,7 @@ export default function Home() {
       <Process />
       <Why />
       <Whyitworks />
+      <Standards />
       <Portfolio />
       <FAQ />
       <Formats />
