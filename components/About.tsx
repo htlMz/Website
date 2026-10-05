@@ -2,13 +2,6 @@ import Container from "./Container";
 import Reveal from "./Reveal";
 import { NAME, STAGE_NAME } from "@/lib/site-config";
 
-// Цифры проверяемые: кейсы и ниши считаются по портфолио на этой же странице
-const facts = [
-  { value: "11", label: "кейсов в портфолио" },
-  { value: "7", label: "ниш в работе" },
-  { value: "2", label: "человека в команде" },
-];
-
 export default function About() {
   return (
     <section id="about" className="relative scroll-mt-24 py-20">
@@ -65,19 +58,6 @@ export default function About() {
                     Процесс и результат сольются воедино
                   </p>
                 </div>
-
-                <dl className="mt-8 grid grid-cols-1 gap-5 border-t border-[var(--fg)]/10 pt-6 sm:grid-cols-3">
-                  {facts.map((fact) => (
-                    <div key={fact.label}>
-                      <dt className="text-3xl font-semibold text-[var(--accent-text)]">
-                        {fact.value}
-                      </dt>
-                      <dd className="mt-1 text-sm leading-snug text-[var(--muted)]">
-                        {fact.label}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
               </div>
             </div>
           </div>
