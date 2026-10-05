@@ -54,24 +54,12 @@ export default function Hero() {
             <div className="relative hidden items-center justify-center lg:flex">
               <div className="glow-orb-pink pointer-events-none absolute h-125 w-125 rounded-full" />
 
-              <div className="absolute right-6 top-10 h-130 w-62 -rotate-6 overflow-hidden rounded-[40px] border border-[var(--fg)]/10 bg-[#0f0e14] opacity-70 shadow-2xl">
-                <video
-                  className="h-full w-full object-cover"
-                  src="/video/case-4-AI.MP4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                />
-              </div>
-
               <div className="animate-float relative h-144 w-72 overflow-hidden rounded-[48px] border border-[var(--fg)]/15 bg-[#0f0e14] shadow-2xl shadow-[var(--accent-text)]/20">
                 <div className="absolute left-1/2 top-3 z-10 h-7 w-36 -translate-x-1/2 rounded-full bg-black" />
 
                 <video
                   className="h-full w-full object-cover"
-                  src="/video/case-1-lifecoach.MP4"
+                  src="/video/case-4-AI.MP4"
                   autoPlay
                   loop
                   muted
